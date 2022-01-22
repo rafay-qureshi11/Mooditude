@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+      <h2 class="">Login</h2>
+      <form autocomplete="off" action="#" [formGroup]="loginForm">
+        <div class="padding-top-15">
+          <input type="email" formControlName="email" class="form-control" placeholder="Your email e.g you@domain.com">
+          <span *ngIf="loginFormSubmitted && flogin.email.errors">Email is required</span>
+        </div>
+        <div class="padding-top-15">
+          <input type="password" formControlName="password" class="form-control" placeholder="Password">
+          <span *ngIf="loginFormSubmitted && flogin.password.errors">Password is required</span>
+        </div>
+        <div class="padding-top-15">
+          <button (click)="onLogin()" type="button" class="btn btn-success">SIGN IN</button>
+        </div>
+      </form>
+      <div class="padding-top-15">
+        <button [routerLink]="['/account/forgot-password']" type="button" class="btn btn-link text-secondary">Forgot
+          Password? Recover</button>
+      </div>
+      <div class="padding-top-15">
+        <button [routerLink]="['/account/signup']" type="button" class="btn btn-link text-secondary">Don’t have an
+          account? Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=""></div>

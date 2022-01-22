@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="tab-content">
+        <div id="introScreen1" class="tab-pane fade in active">
+          <h3>Science Behind Mooditude</h3>
+          <p>___ therapists from North America continuously develop health & lifestyle content for Mooditude users while
+            (universities, medical associations, health organizations) ensure that Mooditude users receive
+            evidence-based
+            information.</p>
+        </div>
+        <div id="introScreen2" class="tab-pane fade">
+          <h3>Navigating Life’s Ups & Downs</h3>
+          <p>It is normal to experience stress, anxiety or depression as you face challenges in life. We want you to
+            know that you are not alone - we can support you with learning new coping skills and self-care techniques
+            that will serve you for a lifetime.</p>
+        </div>
+        <div id="introScreen3" class="tab-pane fade">
+          <h3>The #1 App for mental well-being</h3>
+          <p class="padding-top-15">Trusted by over 20,000 people.</p>
+          <div class="">
+            <p><img class="margin-right-10 img-round-check-circle-size"
+                src="../../../../assets/images/ic_round-check-circle.png"> Based on clinical
+              research</p>
+          </div>
+          <div class="display-inline">
+            <p><img class="margin-right-10 img-round-check-circle-size"
+                src="../../../../assets/images/ic_round-check-circle.png"> Built with cutting
+              edge data-science</p>
+
+          </div>
+          <div class="display-inline">
+            <p><img class="margin-right-10 img-round-check-circle-size"
+                src="../../../../assets/images/ic_round-check-circle.png">180 Personalized
+              Activities for Optimizing Your Well-Being</p>
+          </div>
+        </div>
+        <div id="introScreen4" class="tab-pane fade">
+          <h3>Why Mooditude Works</h3>
+          <p>Mooditude works with psychologists and health organizations to combine the gold standard of talk therapy,
+            Cognitive Behavioral Therapy (CBT), with the power of goal setting, routines, and programs to create a
+            solution personalized to fit you and your specific needs.</p>
+        </div>
+        <div id="introScreen5" class="tab-pane fade">
+          <p class="text-center">
+            <img src="../../../../assets/images/private-secure-img.png"
+              class="private-secure-img-size">
+          </p>
+          <h3>Mooditude is Private & Secure</h3>
+          <p>You'll be using Mooditude for reflecting on your inner thoughts and feelings, so we take privacy seriously.
+            Your personal posts stay on your device. No one can read or share them — not even us!</p>
+        </div>
+        <div id="introScreen6" class="tab-pane fade">
+          <h3>1-in-5 adults experience mental health problems. However, only 30% get the treatment that they need.</h3>
+          <p>There are many reasons, including stigma, health care costs and complexity, and lack of awareness and
+            understanding. Studies show that regular use of digital CBT can be very effective and can complement in
+            person therapy for better outcomes.</p>
+        </div>
+        <div id="introScreen7" class="tab-pane fade">
+          <h3>May we ask you a few questions to get to know you and baseline your current well-being?</h3>
+          <p>You are in your own good hands (privately on your phone), so please relax and answer these questions
+            honestly.</p>
+        </div>
+        <div id="introScreen8" class="tab-pane fade">
+          <h3>Do you have an invitation code?</h3>
+          <input type="text" class="form-control margin-bottom-10" [(ngModel)]="invitationCode" placeholder="Invitation code">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="text-center">
+    <a class="btn btn-success btn-bottom" data-toggle="pill" (click)="onContinue()"
+      href="#introScreen{{introScreen}}">Continue</a>
+  </div>
+</div>

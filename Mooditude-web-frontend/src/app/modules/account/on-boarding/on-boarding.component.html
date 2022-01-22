@@ -1,0 +1,599 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <div class="steps">
+        <ul>
+          <li class="current">
+            <a href="javascript:void(0)">
+              <span class="title">1</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <span class="title">2</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <span class="title">3</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <span class="title">4</span>
+            </a>
+          </li>
+        </ul>
+        <p>Mental Health Assesment</p>
+      </div>
+      <div class="tab-content">
+        <div id="onBoardScreen1" class="tab-pane fade in active">
+          <h3>How old are you?</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let age of ages">
+                <a [ngClass]="{'active': mentalHealth.age == age}" (click)="onSelectAge(age)"
+                  href="javascript:void(0)">{{age}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen2" class="tab-pane fade">
+          <h3>What's your gender identity?</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let gender of genders">
+                <a [ngClass]="{'active': mentalHealth.gender == gender}" (click)="onSelectGender(gender)"
+                  href="javascript:void(0)">{{gender}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen3" class="tab-pane fade">
+          <h3>What is your sexual orientation?</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let sexualOrientation of sexualOrientations">
+                <a [ngClass]="{'active': mentalHealth.sexualOrientation == sexualOrientation}"
+                  (click)="onSelectSexualOrientation(sexualOrientation)"
+                  href="javascript:void(0)">{{sexualOrientation}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen4" class="tab-pane fade">
+          <h3>What is your marital status?</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let maritalStatus of maritalStatuses">
+                <a [ngClass]="{'active': mentalHealth.maritalStatus == maritalStatus}"
+                  (click)="onSelectMaritalStatus(maritalStatus)" href="javascript:void(0)">{{maritalStatus}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen5" class="tab-pane fade">
+          <h3>What is your race/ethnic identity?</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let raceIdentity of raceIdentities">
+                <a [ngClass]="{'active': mentalHealth.raceIdentity == raceIdentity}"
+                  (click)="onSelectRaceIdentity(raceIdentity)" href="javascript:void(0)">{{raceIdentity}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen6" class="tab-pane fade">
+          <h3>Are you employed?</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let employment of employments">
+                <a [ngClass]="{'active': mentalHealth.employment == employment}"
+                  (click)="onSelectEmployment(employment)" href="javascript:void(0)">{{employment}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen7" class="tab-pane fade text-left">
+          <h3>You are not alone...</h3>
+        </div>
+        <div id="onBoardScreen8" class="tab-pane fade text-left">
+          <h3>This assessment is US-recognized, clinically validated and peer-reviewed.</h3>
+          <div class="inner contentSelection">
+            <p>Over 2,000,000 people have used this assessment. A clinic charges a minimum of $100 for even a simple
+              assessment to detect a single type of mental illness.</p>
+            <p>
+              Our multi-dimensional test will look at risk factors
+              for Depression, Anxiety disorders, Bipolar disorders, Post-traumatic stress disorder, Substance Misuse,
+              Suicidality and Functional Impairment.</p>
+            <p>
+              The results will personalize Mooditude for you. And you will be
+              able share the results with your providers if you wish.</p>
+          </div>
+        </div>
+        <div id="onBoardScreen9" class="tab-pane fade text-left">
+          <h3>Consider the last two weeks or more and answer the following questions:</h3>
+          <div class="inner contentSelection">
+            <p>Click continue to make a selection.</p>
+          </div>
+        </div>
+        <div id="onBoardScreen10" class="tab-pane fade">
+          <h3>I feel sad, down in the dumps or unhappy</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.feelSad = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.feelSad == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen11" class="tab-pane fade">
+          <h3>I can’t concentrate or focus</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.cantConcentrate = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.cantConcentrate == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen12" class="tab-pane fade">
+          <h3>Nothing seems to give me much pleasure</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.nothingSeemsPleasure = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.nothingSeemsPleasure == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen13" class="tab-pane fade">
+          <h3>I feel tired; have no energy</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.feelTried = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.feelTried == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen14" class="tab-pane fade">
+          <h3>I have had thoughts of suicide</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.thoughtsSuicide = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.thoughtsSuicide == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen15" class="tab-pane fade">
+          <h3>I have difficulty sleeping</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.difficultySleeping = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.difficultySleeping == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen16" class="tab-pane fade">
+          <h3>I sleep too much</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.sleepToMuch = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.sleepToMuch == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen17" class="tab-pane fade">
+          <h3>I have lost some appetite</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.lostAppetite = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.lostAppetite == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen18" class="tab-pane fade">
+          <h3>I am eating more</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.depressionQuestions.eatingMore = answer.weight"
+                  [ngClass]="{'active': mentalHealth.depressionQuestions.eatingMore == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- End of depression questions -->
+        <!-- start of anxiouty -->
+        <div id="onBoardScreen19" class="tab-pane fade text-left">
+          <span>
+            <h2 class="display-inline">7% </h2>
+            <h3 class="display-inline">of people experience depression.</h3>
+          </span>
+          <div class="inner contentSelction">
+            <h3>People who are depressed show 50% improvement with regular use of apps like Mooditude.</h3>
+          </div>
+          <div class="inner contentSelection">
+            <img src="../../../../assets//images//5-stars.png" class="img-responsive stars-img">
+            <p><b>Great partner app through my depression</b>
+              "I was going through a real down period. Once I started using
+              Mooditude and made an effort to use the app,it slowly became a part of my routine...and I paid for the
+              subscription. It really has helped me monitor my feelings overtime and I appreciate how quick and easy
+              it is to write journals on this app."</p>
+          </div>
+        </div>
+        <div id="onBoardScreen20" class="tab-pane fade">
+          <h3>I feel tense, anxious or can’t sit still</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.feelTense = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.feelTense == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen21" class="tab-pane fade">
+          <h3>I feel worried or fearful</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.feelWorried = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.feelWorried == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen22" class="tab-pane fade text-left">
+          <span>
+            <h2 class="display-inline">19% </h2>
+            <h3 class="display-inline">of adults have an anxiety disorder.</h3>
+          </span>
+          <div class="inner contentSelction">
+            <h3>Mooditude has built-in coping activities to manage anxiety in the moment.</h3>
+          </div>
+          <div class="inner contentSelection">
+            <img src="../../../../assets//images//5-stars.png" class="img-responsive stars-img">
+            <p><b>An app that really helps</b>
+              "It’s really helping me with my anxiety and depression and on re-play thoughts,
+              I’m thinking to upgrade to have full access to app but as far as the free version it’s still very useful
+              but I feel having full access will be worth paying for it. I’m glad I found this app 😊"</p>
+          </div>
+        </div>
+        <div id="onBoardScreen23" class="tab-pane fade">
+          <h3>I have attacks of anxiety or panic</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.attacksofAnxiety = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.attacksofAnxiety == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen24" class="tab-pane fade">
+          <h3>I worry about dying or losing control</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.worryDying = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.worryDying == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen25" class="tab-pane fade text-left">
+          <h3>Whenever you feel panic coming on, grab Mooditude and you'll be able to try:</h3>
+          <div class="">
+            <h4>
+              A 7-11 meditation (used by US Navy Seals)</h4>
+            <h4><img src="../../../../assets/images/grounded.png" class="img-responsive icon-img display-inline"> A
+              quick
+              grounding technique
+            </h4>
+            <h4>
+              <img src="../../../../assets/images/PMR.png" class="img-responsive icon-img display-inline"> A progressive
+              muscle relaxation exercise to reframe and reset
+            </h4>
+          </div>
+        </div>
+        <div id="onBoardScreen26" class="tab-pane fade">
+          <h3>I am nervous or shaky in social situations</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.socialSituations = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.socialSituations == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen27" class="tab-pane fade text-left">
+          <h3>Mooditude has specific programs on social skills and making new friends. </h3>
+          <div class="inner contentSelction">
+            <p><b>Changed my life</b><br> “This app has literally turned my frown upside down. You have to try it. It’s
+              more than
+              just a journal—it helps you acknowledge your mood triggers with seamless and easy to use buttons and even
+              shows you stats over time. The CBT Tools are incredible. Give it a try!”</p>
+          </div>
+        </div>
+        <div id="onBoardScreen28" class="tab-pane fade">
+          <h3>I have nightmares or flashbacks</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.PTSDQuestions.nightmares = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.PTSDQuestions.nightmares == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen29" class="tab-pane fade">
+          <h3>I am jumpy or feel startled easily</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.PTSDQuestions.feelStartled = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.PTSDQuestions.feelStartled == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen30" class="tab-pane fade">
+          <h3>I avoid places that remind of a bad experience</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.PTSDQuestions.avoidPlaces = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.PTSDQuestions.avoidPlaces == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen31" class="tab-pane fade">
+          <h3>I feel dull, numb, or detached</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.PTSDQuestions.feelDull = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.PTSDQuestions.feelDull == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen32" class="tab-pane fade text-left">
+          <span>
+            <h2 class="display-inline">4% </h2>
+            <h3 class="display-inline">of the population experience Post-traumatic Stress Disorder (PTSD).</h3>
+          </span>
+          <div class="inner contentSelction">
+            <h3>Mooditude contains several clinically-designed CBT mindset excercises that help people with PTSD
+              recognize their trauma and change their thought patterns.</h3>
+          </div>
+        </div>
+        <div id="onBoardScreen33" class="tab-pane fade">
+          <h3>I can’t get certain thoughts out of my mind</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.cantGetThoughtsOutofMind = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.cantGetThoughtsOutofMind == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen34" class="tab-pane fade">
+          <h3>I feel I must repeat certain acts or rituals</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.repeatCertainActs = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.repeatCertainActs == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen35" class="tab-pane fade">
+          <h3>I feel the need to check and recheck things</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.anxietyQuestions.needToCheckAndRecheck = answer.weight"
+                  [ngClass]="{'active': mentalHealth.anxietyQuestions.needToCheckAndRecheck == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen36" class="tab-pane fade text-left">
+          <span>
+            <h2 class="display-inline">1% </h2>
+            <h3 class="display-inline">of the population is affected by Obsessive Compulsive Disorder (OCD).</h3>
+          </span>
+          <div class="inner contentSelction">
+            <h3>Mooditude helps people with OCD set up mindfulness exercises, setting healthy routines and learn skills
+              to lead a balanced life.</h3>
+          </div>
+        </div>
+        <div id="onBoardScreen37" class="tab-pane fade">
+          <h3>I have more energy than usual</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.bipolarDisorderQustions.moreEnergy = answer.weight"
+                  [ngClass]="{'active': mentalHealth.bipolarDisorderQustions.moreEnergy == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen38" class="tab-pane fade">
+          <h3>I have felt unusually irritable or angry</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.bipolarDisorderQustions.feltIrritable = answer.weight"
+                  [ngClass]="{'active': mentalHealth.bipolarDisorderQustions.feltIrritable == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen39" class="tab-pane fade">
+          <h3>I have felt unusually excited, revved up or high</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.bipolarDisorderQustions.feltExcited = answer.weight"
+                  [ngClass]="{'active': mentalHealth.bipolarDisorderQustions.feltExcited == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen40" class="tab-pane fade">
+          <h3>I have needed less sleep than usual</h3>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.bipolarDisorderQustions.neededLessSleep = answer.weight"
+                  [ngClass]="{'active': mentalHealth.bipolarDisorderQustions.neededLessSleep == answer.weight}"
+                  href="javascript:void(0)">{{answer.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen41" class="tab-pane fade text-left">
+          <span>
+            <h2 class="display-inline">3% </h2>
+            <h3 class="display-inline">of the population has Bipolar Disorder, mania or hypomania.</h3>
+          </span>
+          <div class="inner contentSelction">
+            <h3>Mooditude's mood and trigger tracking plus creating and following custom daily routines make a big
+              difference in managing symptoms.</h3>
+          </div>
+        </div>
+        <div id="onBoardScreen42" class="tab-pane fade">
+          <!-- <p class="text-left">Depression : {{onBoarding.riskScoringDepression}}, likeli Hood Depression:
+            {{onBoarding.likeliHoodDepression}}</p>
+          <p class="text-left">Anxiety : {{onBoarding.riskScoringAnxiety}}, likeli Hood Anxiety:
+            {{onBoarding.likeliHoodAnxiety}} </p>
+          <p class="text-left">PTSD: {{onBoarding.riskScoringPTSD}}, likeli Hood PTSD : {{onBoarding.likeliHoodPTSD}}
+          </p>
+          <p class="text-left"> Biploar Disorder: {{onBoarding.riskScoringBipolarDisorder}}, likeli Hood Bipolar
+            Disorder: {{onBoarding.likeliHoodBipolarDisorder}}
+          </p>
+          <p class="text-left">Total Risk Scoring:{{onBoarding.riskScoringMentalHealth}}, likeli Hood Mental Health:
+            {{onBoarding.likeliHoodMentalHealth}} </p> -->
+          <div class="inner contentSelction">
+            <h3>Calculating your well-being score <br>Analysing data<br>It may takes couple of minutes.</h3>
+          </div>
+        </div>
+        <div id="onBoardScreen43" class="tab-pane fade">
+          <span>
+            <h3 class="display-inline">Do previously reported symptoms interferes with work or school?</h3>
+          </span>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.functionalImpairmentQuestions.interferesWithWork = answer.weight"
+                  [ngClass]="{'active': mentalHealth.functionalImpairmentQuestions.interferesWithWork == answer.weight}"
+                  href="javascript:void(0)">{{answer.weight}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen44" class="tab-pane fade">
+          <span>
+            <h3 class="display-inline">Do previously reported symptoms affects your relationships with friends or
+              family?</h3>
+          </span>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.functionalImpairmentQuestions.affectsRelationships = answer.weight"
+                  [ngClass]="{'active': mentalHealth.functionalImpairmentQuestions.affectsRelationships == answer.weight}"
+                  href="javascript:void(0)">{{answer.weight}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen45" class="tab-pane fade">
+          <span>
+            <h3 class="display-inline">Do previously reported symptoms has led to my using alcohol to get by?</h3>
+          </span>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.functionalImpairmentQuestions.hasLedToUsingAlcohol = answer.weight"
+                  [ngClass]="{'active': mentalHealth.functionalImpairmentQuestions.hasLedToUsingAlcohol == answer.weight}"
+                  href="javascript:void(0)">{{answer.weight}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen46" class="tab-pane fade">
+          <span>
+            <h3 class="display-inline">Do previously reported symptoms has led to you using other substances?</h3>
+          </span>
+          <div class="inner contentSelection">
+            <ul>
+              <li *ngFor="let answer of answerWeight">
+                <a (click)="mentalHealth.functionalImpairmentQuestions.hasLedToUsingOtherSubstances = answer.weight"
+                  [ngClass]="{'active': mentalHealth.functionalImpairmentQuestions.hasLedToUsingOtherSubstances == answer.weight}"
+                  href="javascript:void(0)">{{answer.weight}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="onBoardScreen47" class="tab-pane fade">
+          <div class="">
+            <img src="../../../../assets/images/risk-scoring-circle.png">
+            <p class="centered"> {{onBoarding.riskScoringMentalHealth}} </p>
+          </div>
+          <div class="inner contentSelection">
+            <h4>Your overall mental well-being score is {{onBoarding.riskScoringMentalHealth}} out of xx.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center padding-top-30">
+    <a *ngIf="showContinue" id="onBoardScreen" class="btn btn-success btn-bottom" data-toggle="pill"
+      (click)="onContinue()" href="#onBoardScreen{{onBoardScreen}}">Continue</a>
+  </div>
+
+</div>

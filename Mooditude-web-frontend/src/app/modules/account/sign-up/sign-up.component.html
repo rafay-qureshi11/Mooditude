@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+      <h2>Create Account</h2>
+      <div *ngIf="loading" class="luna-loading"></div>
+      <p class="text-danger">{{error}}</p>
+      <form autocomplete="off" action="#" [formGroup]="signupForm">
+        <div class="image-upload padding-top-15 text-center">
+          <label for="file-input">
+            <img src="../../assets/images/AddProfileImage.png" />
+          </label>
+          <input id="file-input" type="file" (change)="uploadImage($event)"
+            accept="image/*" />
+          <img class="margin-left-10" [src]="dislayImage" *ngIf="dislayImage" width="200">
+        </div>
+        <div class="padding-top-15">
+          <input type="text" formControlName="name" class="form-control" placeholder="Your name">
+          <span *ngIf="singupFormSubmitted && fsignup.name.errors">Name is required</span>
+        </div>
+        <div class="padding-top-15">
+          <input type="email" formControlName="email" class="form-control" placeholder="Your email e.g you@domain.com">
+          <span *ngIf="singupFormSubmitted && fsignup.email.errors">Email is required</span>
+        </div>
+        <div class="padding-top-15">
+          <input type="password" formControlName="password" class="form-control" placeholder="Password">
+          <span *ngIf="singupFormSubmitted && fsignup.password.errors">Password is required</span>
+        </div>
+        <div class="padding-top-15">
+          <button (click)="onSignup()" type="button" class="btn btn-success">SIGN UP</button>
+        </div>
+      </form>
+      <div class="padding-top-15">
+        <p class="text-secondary margin-left-10 margin-left-10">
+          We don’t share or sell your data. Your information is used to provide better in-app
+          and support experience. If you
+          don’t wish to create an account, you can skip this step. Some functionality will not work.</p>
+      </div>
+      <div class="padding-top-15">
+        <button [routerLink]="['/account/login']" type="button" class="btn btn-link text-secondary">Already have an
+          account? Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #open_welcomeScreen>
+  <div class="modal-body">
+    <div class="modalTitle mx-auto text-center mt30">
+      <p>You're in!</p>
+      <i class="icon-invoice font42 color000"></i>
+      <h2 class="fontPoppin font18 fontSemiBold mt15 color000">
+        Now install the app below <br>to get started
+      </h2>
+      <img class="youAreIn padding-top-15" src="../../../../assets/images/you-are-in.jpg">
+      <p class="padding-top-15">If you are viewing this on desktop we've sent<br> the install links to your email on mobile</p>
+      
+      <ul class="list-inline padding-top-15">
+        <li class="list-inline-item">
+          <a href="" class="">
+            <img src="../../../../assets/images/AppStoreImage.png" alt="" class="img-responsive storeLogo">
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="" class="">
+            <img src="../../../../assets/images/PlayStoreImage.png" alt="" class="img-responsive storeLogo">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-footer text-center">
+    <button (click)="closeModel(); gotoHome()" type="button"
+      class="btn">Close</button>
+  </div>
+</ng-template>

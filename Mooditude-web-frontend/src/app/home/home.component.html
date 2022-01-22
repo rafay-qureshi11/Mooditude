@@ -1,0 +1,73 @@
+<header class="bg-img-yellow">
+  <nav class="navbar padding-top-15">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a routerLink="" class="nav-brand">
+          <img src="../../assets/images/Mooditude-logo.png" alt="" class="img-responsive logo-img-size">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a [routerLink]="['/home']" routerLink="home">HOME</a>
+          </li>
+          <li>
+            <!-- [routerLink]="['/account/login']" -->
+            <a>APPROACH</a>
+          </li>
+          <li>
+            <a [routerLink]="['/account/introduction']">COMPANY</a>
+          </li>
+          <li>
+            <a [routerLink]="['/account/signup']">SIGN UP</a>
+          </li>
+          <li>
+            <a *ngIf="isLogedIn" (click)="onLogOut()">Logout</a>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="row">
+    <div class="container">
+      <div class="col-sm-6">
+        <div class="inner-content">
+          <h1>Clinically designed mental <br> healths programs, at your <br> fingertips</h1>
+          <p>Mooditude is an effective, modern day solution for your <br> mental health and well-being. Take advantage of the <br>
+            same tools used by clinical psychologists— tools that <br> are proven to work.</p>
+
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="" class="">
+                <img src="../../assets/images/AppStoreImage.png" alt="" class="img-responsive store-img">
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="" class="">
+                <img src="../../assets/images/PlayStoreImage.png" alt="" class="img-responsive store-img">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="banner-img">
+          <img src="../../assets/images/MobileImages.png" alt="" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>

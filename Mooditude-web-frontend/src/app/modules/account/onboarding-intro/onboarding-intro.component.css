@@ -1,0 +1,19 @@
+.img-round-check-circle-size {
+  width: 24px;
+  height: 24px;
+}
+
+.private-secure-img-size {
+  width: 175px;
+  height: 175px;
+}
+
+.btn-bottom {
+    position:absolute;
+    bottom: 20%;
+    right:50%;
+}
+
+.tab-content p {
+  font-size: 20px;
+}
